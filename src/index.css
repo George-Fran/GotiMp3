@@ -249,3 +249,7 @@ a:hover {
 .h2_center {
   text-align: center;
 }
+.descargar_btn {
+  color: red;
+  text-decoration: overline;
+}
