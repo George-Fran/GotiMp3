@@ -5,6 +5,8 @@ import { youtube_parser } from "./utils";
 function App() {
   const inputUrlRef = useRef();
   const [urlResult, setUrlResult] = useState(null);
+  const [songTitle, setSongTitle] = useState(null);
+  const [songImage, setSongImage] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,9 +27,13 @@ function App() {
     }
 
     axios(options)
-      .then(res => setUrlResult(res.data.link))
-      .catch(err => console.log(err))
-    
+      .then((res) => {
+        setUrlResult(res.data.link);
+        setSongTitle(res.data.title);
+        setSongImage(youtubeID);
+      })
+      .catch(err => console.log(err));
+
     inputUrlRef.current.value = '';
   }
   return (
@@ -35,7 +41,7 @@ function App() {
       <section className="container">
         <h1>
           Convertidor de
-          <span className="container_titulo">YouTube</span> a MP3
+          <span className="container_titulo"> YouTube</span> a MP3
         </h1>
         <h2>
           "Cansado de ver anuncio tras anuncio para descargar una cancion<br
@@ -54,12 +60,21 @@ function App() {
           <button type="submit" className="btn btn--pe btn--insano uppercase">Buscar</button>
         </form>
 
+        <div className="vista-contenido">
+        <br />
+        <br />
+
+        {songImage && <img src={`https://img.youtube.com/vi/${songImage}/0.jpg`} alt={`Portada de ${songTitle}`} className="vista-imagen"/>}
+
         <br>
         </br>
         <br />
+        {songTitle && <h3 className="vista-titulo">{songTitle}</h3>}
+        
         <br />
         <br />
         {urlResult ? <a target="_blank" rel="noreferrer" href={urlResult} className="descargar_btn">Descargar MP3</a> : ''}
+        </div>
       </section>
 
     </div>

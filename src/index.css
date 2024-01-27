@@ -52,17 +52,17 @@ a:hover {
   cursor: pointer;
 }
 .btn--pe {
-  background: #7f8ff4;
+  background: #d61a1a;
   color: #fff;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   padding: 12px 36px;
 }
 .btn--pe:hover {
-  background: #6c7ff2;
+  background: #b94747;
 }
 .btn--pe:active {
-  background: #7f8ff4;
+  background: #d61a1a;
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 .btn--insano {
@@ -225,19 +225,9 @@ a:hover {
     color: #7f8ff4;
   }
 
-  @media (max-width: 350px) {
-    .container h1 {
-      font-weight: 800;
-      font-size: 52px;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 300px) {
-    .container h1 {
-      font-weight: 800;
-      font-size: 42px;
-      text-align: center;
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 2.5em; 
     }
   }
 
@@ -252,4 +242,33 @@ a:hover {
 .descargar_btn {
   color: red;
   text-decoration: overline;
+}
+
+
+
+.vista-contenido{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.vista-imagen{
+  max-width: 100%;
+  height: auto;
+  width: 200px;
+  margin-top: 10px;
+}
+
+
+.vista-titulo{
+  margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .vista-imagen {
+    width: 100%;
+    max-width: none;
+  }
 }
